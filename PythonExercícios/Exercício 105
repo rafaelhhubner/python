@@ -1,0 +1,59 @@
+def notas(lst, bom):
+    contador = soma = maior = menor = 0
+    dicionario = dict()
+    for v, c in enumerate(lst):
+        soma += c
+        contador += 1
+        if v == 0:
+            maior = c
+            menor = c
+        else:
+            if c > maior:
+                maior = c
+            elif c < menor:
+                menor = c
+    média = soma / contador
+    if média >= 6 and média < 7.5:
+        con = 'RAZOÁVEL'
+    elif média >= 7.5 and média < 9:
+        con = 'ÓTIMA'
+    elif média >= 9:
+        con = 'INCRÍVEL'
+    else:
+        if 4.5 < média < 6:
+            con = 'RUIM'
+        elif média <= 4.5:
+            con = 'TERRÍVEL'  
+    dicionario['notas'] = contador
+    dicionario['maior'] = maior
+    dicionario['menor'] = menor
+    dicionario['média'] = média
+    if bom == True:
+        dicionario['situação'] = con
+    print(dicionario)
+
+lista = list()
+while True:
+    n = float(input('Digite a nota: '))
+    lista.append(n)
+    
+    res = str(input('Quer continuar [S/N]? ')).strip().upper()[0]
+    if res not in 'NnSs':
+        while True:
+            print('\033[31;mERRO!\033[m Responda com \033[1mS\033[m ou \033[1mN\033[m')
+            res = str(input('Quer continuar [S/N]? ')).strip().upper()[0]
+            if res in 'SsNn':
+                break
+    if res in 'Nn':
+        break
+sit = str(input('Quer saber a situação da turma, de acordo com a média das notas [S/N]? ')).strip().upper()[0]
+if sit not in 'SsNn':
+    while True:
+        print('\033[31;mERRO!\033[m Responda com \033[1;mS\033[m ou \033[1mN\033[m')
+        sit = str(input('Quer saber a situação da turma, de acordo com a média das notas [S/N]? ')).strip().upper()[0]
+else:
+    if sit in 'Nn':
+        burro = False
+    elif sit in 'Ss':
+        burro = True
+notas(lista, burro)

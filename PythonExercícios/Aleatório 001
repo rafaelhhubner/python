@@ -1,0 +1,26 @@
+v = float(input('Qual o valor da casa? '))
+t = float(input('Em quantos anos pretende pagar? '))
+r = float(input('Qual a sua renda mensal? '))
+mes = t * 12
+rd = r / 100 * 30
+par = v / mes
+if rd >= par:
+    print('Empréstimo aprovado!')
+    print(f'A prestação mensal será de R${round(par)},00')
+
+if rd < par:
+    print('O empréstimo foi negado')
+    resposta = str(input('Gostaria de aumentar o tempo para quitação? ')).strip().upper()
+
+if  resposta == ('SIM'):
+    novo = int(input('Sendo assim, em quantos anos pretende pagar? '))
+    mes1 = novo * 12
+    par1 = v / mes1
+
+else:
+    print('Então sentimos muito, tenha um bom dia!')
+
+if rd >= par1:
+    print(f'O novo pedido foi aprovado! A parcela mensal será de R${round(par1)},00')
+else:
+    print('Sentimos muito, mas foi negado novamente, tenha um bom dia!')

@@ -1,0 +1,20 @@
+def fator(n, m):
+    a = 1
+    for c in range(n, 0, -1):
+        if m == True:
+            print(f'{c}', end='')
+            if c > 1:
+                print(' x ', end='')
+            else:
+                print(' = ', end='')
+
+        a *= c
+    return a
+fat = int(input('Quer saber o fatorial de qual número? '))
+show = str(input('Quer ver o processo do fatorial [Sim/Não]? ')).upper().strip()[0]
+if show in 'Ss':
+    show = True
+else:
+    show = False
+print(f'{fator(fat, show)}')
+

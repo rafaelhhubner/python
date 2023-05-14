@@ -1,0 +1,23 @@
+nome = str(input('Qual o nome do jogador? ')).strip()
+partida = int(input(f'Quantas partidas {nome} jogou? '))
+dicionario = dict()
+lista = list()
+dicionario['Nome'] = nome
+n = soma = 0
+for c in range(0, partida):
+    gols = int(input(f'Quantos gols ele fez na partida {n}? '))
+    soma += gols
+    lista.append(gols)
+    n += 1
+dicionario['Gols'] = lista[:]
+dicionario['Total'] = soma
+print('=' *30)
+print(dicionario)
+print('=' *30)
+for c in dicionario.items():
+    print(f'O campo {c[0]} tem o valor {c[1]}')
+print('=' *30)
+print(f'O jogador {nome} jogou {partida} partidas.')
+for v, c in enumerate(dicionario['Gols']):
+    print(f'   => Na partida {v}, fez {c} Gols')
+print(f'Foi um total de {soma} Gols.')

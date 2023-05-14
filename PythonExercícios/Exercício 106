@@ -1,0 +1,18 @@
+from time import sleep
+def linha(msg, color):
+    print(f'\033[{color}m~' * (len(msg)+4))
+    print(f'  {msg}')
+    print('~' * (len(msg)+4))
+def ajuda(f):
+    print('\033[45m',end='')
+    help(f)
+    print('\033[m')
+
+while True:
+    linha('SISTEMA DE AJUDA INSTAHELP', 42)
+    fun = str(input(f'\033[mFunção ou biblioteca > ')).strip()
+    linha(f'Acessando o manual do comando {fun}', 41)
+    sleep(2)
+    ajuda(fun)
+    if fun == 'Fim':
+        break

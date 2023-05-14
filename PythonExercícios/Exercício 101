@@ -1,0 +1,12 @@
+def voto(a):
+    idade = 2022 - a
+    if idade >= 16 and idade < 18 or idade > 65:
+        print(f'Com {idade} anos: \033[1;33mVOTO OPCIONAL\033[m')
+    else:
+        if idade < 16:
+            print(f'Com {idade} anos: \033[1;32mNÃO VOTA\033[m')
+        elif idade > 17 and idade <= 65:
+            print(f'Com {idade} anos: VOTO \033[1;31mOBRIGATÓRIO\033[m')
+
+ano = int(input('Em que ano você nasceu? '))
+voto(ano)

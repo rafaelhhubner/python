@@ -1,0 +1,36 @@
+dicionario = dict()
+lista = list()  
+soma = 0
+
+while True:
+    dicionario.clear()
+    nome = str(input('Nome: ')).strip()
+    gen = str(input('Sexo [M/F]: ')).strip().upper()[0]
+    idade = int(input('Idade: '))
+    soma += idade
+    dicionario['Nome'] = nome
+    dicionario['Sexo'] = gen
+    dicionario['Idade'] = idade
+    lista.append(dicionario.copy())
+    resposta = str(input('Quer continuar [S/N]? ')).strip().upper()[0]
+    if resposta in 'Nn':
+        break
+    elif resposta not in 'Ss' and resposta not in 'Nn':
+        while True: 
+            print('\033[1mERRO!\033[m, Por favor, respona somente com S ou N')
+            resposta = str(input('Quer continuar [S/N]? ')).strip().upper()[0]
+            if resposta in 'NnSs':
+                break
+    if resposta in 'Nn':
+        break
+média = soma / len(lista)
+print(f'A) Ao todo foram cadastradas {len(lista)} pessoas.')
+print(f'B) A média de idade é de {média} anos.')
+print(f'C) As mulheres cadastradas foram, ', end='')
+for x in lista:
+    if x['Sexo'] == 'F':
+        print(f'{x["Nome"]} ', end='')
+print(f'\nD) Lista de pessoas que estão acima da média de idade cadastrada:')
+for c in lista:
+    if c['Idade'] > média:
+        print(c)

@@ -1,0 +1,27 @@
+def leiainteiro(msg):
+    while True:
+        try:
+            n = int(input(msg))
+        except (ValueError, TypeError) :
+            print('\033[1;31mERRO! Você deve digitar um NÚMERO INTEIRO.\033[m')
+            continue
+        except KeyboardInterrupt:
+            print('\033[1;35mO usuário preferiu não informar este número\033[m')
+            n = 0
+        return n
+
+def leiareal(msg):
+    while True:
+        try:
+            n1 = float(input(msg))
+        except (ValueError, TypeError):   
+            print('\033[1;31mERRO! Você deve digitar um NÚMERO REAL.\033[m')
+            continue
+        except KeyboardInterrupt:
+            print('\033[1;35mO usuário preferiu não informar este número\033[m')
+            n1 = 0
+        return n1
+
+n = leiainteiro('Digite um Número Inteiro: ')
+n1 = leiareal('Digite um Número Real: ')
+print(f'O valor inteiro digitado foi {n} e o valo real foi {n1}')

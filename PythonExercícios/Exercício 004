@@ -1,0 +1,5 @@
+a = input('Digite algo, SEU NOIA ')
+print('Qual o Tipo Primitivo do Valor Digitado?', type(a))
+print('É um Número?', a.isnumeric ())
+print('É uma Letra?', a.isalpha ())
+print('Só possui Espaços?', a.isspace ())

@@ -1,0 +1,53 @@
+dicionario = dict()
+lista = list()
+gols = list()
+soma = n = 0
+while True:
+    soma = 0
+    gols.clear()
+    dicionario.clear()
+    nome = str(input('Qual o nome do jogador? ')).strip()
+    jogos = int(input(f'Quantos jogos {nome} disputou? '))
+    for c in range(0, jogos):
+        gol = int(input(f'Quantos gols ele marcou na {c+1} partida? '))
+        soma += gol
+        gols.append(gol)
+    dicionario['Nome'] = nome
+    dicionario['Gols'] = gols.copy()
+    dicionario['Total'] = soma
+    lista.append(dicionario.copy())
+    n += 1
+    resposta = str(input('Quer continuar [S/N]? ')).strip().upper()[0]
+    if resposta not in 'NnSs':
+        while True:
+            print('Erro. Por favor tente novamente, responda apenas com S ou N')
+            resposta = str(input('Quer continuar [S/N]? ')).strip().upper()[0]
+            if resposta in 'NnSs':
+                break
+    if resposta in 'Nn':
+        break
+n = 0
+print('=' *30)
+print('cod nome      gols      total')
+print('\033[1m-\033[m')
+for c in lista:
+    print(f'{n} {c["Nome"]} {c["Gols"]} {c["Total"]}')
+    n += 1
+print('=' * 30)
+while True:
+    n = 0
+    qual = int(input('Mostrar dados de qual jogador? '))
+    if qual == 999:
+        break
+    else:
+        if qual  not in range(0, len(lista)):
+            while True:
+                print('Erro. Digite o número de um jogador, como dado acima.')
+                qual = int(input('Mostrar dados de qual jogador? '))
+                if qual in range(0, len(lista)):
+                    break
+        else:
+            print(f'-- LEVANTAMNETO DO JOGADOR {lista[qual]["Nome"]}')
+            for x, z in enumerate(lista[qual]["Gols"]):
+                print(f'No jogo {x+1} fez {z} gols.')
+           

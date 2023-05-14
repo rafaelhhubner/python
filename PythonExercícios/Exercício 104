@@ -1,0 +1,15 @@
+
+def leiareal(msg):
+    n1 = str(input(msg))
+    if n1.isnumeric():
+        n1 = float(n1)
+    else:
+        while True:
+            print('\033[1;31mERRO! Você deve digitar um NÚMERO REAL\033[m')
+            n1 = str(input(msg))
+            if n1.isnumeric():
+                n1 = float(n1)
+                break
+
+n = leiareal('Digite um número real: ')
+print(f'Você acabou de digitar o número {n}')
