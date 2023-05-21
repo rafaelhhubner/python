@@ -1,0 +1,7 @@
+def área(a, b):
+    s = a * b
+    print(f'A área de um terreno de {a}x{b} é de {s}m²')
+
+lar = float(input('Qual a largura do terreno (m)? '))
+com = float(input('Qual o comprimento do terreno (m)? '))
+área(lar, com)
