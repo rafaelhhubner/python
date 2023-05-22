@@ -25,4 +25,4 @@ while True:
 print(f'O total gasto com a compra foi de R${round(total/ 1,2)}')
 print(f'Ao todo {contador} produtos custam mais de R$1000,00')
 print(f'O produto mais barato foi {menor} que custa R${round(menor1/ 1,2)}')
-print('-----FIM-----')
+print('-----FIM-----') 
